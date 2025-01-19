@@ -21,7 +21,7 @@ struct ContentView: View {
                 .fontWeight(.heavy)
                 .foregroundStyle(.red)
             Button("Click Me!") {
-                message = "Awesome!"
+                message = "Amazing!"
             }
                 
         }
