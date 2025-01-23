@@ -15,31 +15,30 @@ struct ContentView: View {
     var body: some View {
         
         VStack {
-            Spacer()
-            
-            Image(imageName)
-                .resizable()
-                .scaledToFit()
-                .clipShape(RoundedRectangle(cornerRadius: 30))
-                .shadow(radius: 30)
-            
-            
             Text(message)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .foregroundStyle(.red)
                 .multilineTextAlignment(.center)
-            
-            
-            
+                .minimumScaleFactor(0.5)
+                .frame(height: 100)
+                .animation(.easeInOut(duration: 0.15), value: message)
+
+            Image(imageName)
+                .resizable()
+                .scaledToFit()
+                .clipShape(RoundedRectangle(cornerRadius: 30))
+                .shadow(radius: 30)
+                .animation(.default, value: imageName)
             
             Spacer()
             
             Button("Show Message") {
                 let messages = ["You Are Awesome!",
+                                "When the genius bar needs help, they call you!",
+                                "You make me Smile!",
                                 "You are Great", "You are Fantastic!",
-                                "Fabulous? That's You!",
-                                "You make me Smile!", "When the genius bar needs help, they call you!"]
+                                "Fabulous? That's You!"]
                 message = messages[messageNumber]
                 messageNumber += 1
                 if messageNumber == messages.count{
